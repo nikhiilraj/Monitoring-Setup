@@ -41,10 +41,7 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
 
 ## 🏗️ Architecture Overview
 
-```
-
-```
-
+```text
                 ┌──────────────┐
                 │   Client     │
                 └──────┬───────┘
@@ -63,28 +60,26 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
               │ └──────────────┘ │
               └─────────┬────────┘
                         │
-    ┌───────────────────┴───────────────────┐
-    │                                       │
-┌──────────────┐                       ┌────────────────┐
-│ Prometheus   │                       │     Loki       │
-│ (Metrics)    │                       │ (Logs Store)   │
-└──────┬───────┘                       └───────┬────────┘
-│                                       │
-└───────────────┬───────────────────────┘
-▼
-┌────────────┐
-│  Grafana   │
-│ Dashboards │
-└────────────┘
-
-```
+        ┌───────────────┴───────────────┐
+        │                               │
+┌──────────────┐                 ┌──────────────┐
+│ Prometheus   │                 │     Loki     │
+│ (Metrics)    │                 │ (Logs Store) │
+└──────┬───────┘                 └──────┬───────┘
+       │                                │
+       └───────────────┬────────────────┘
+                       ▼
+                 ┌────────────┐
+                 │  Grafana   │
+                 │ Dashboards │
+                 └────────────┘
+````
 
 ---
 
 ## 📂 Project Structure
 
-```
-
+```text
 .
 ├── index.js                # Express app + metrics + logging
 ├── util.js                 # Simulated heavy task (latency & errors)
@@ -92,23 +87,24 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
 ├── prometheus-config.yml   # Prometheus scrape config
 ├── docker-compose.yml      # Prometheus, Grafana, Loki stack
 └── README.md
-
-````
+```
 
 ---
 
 ## 📈 Metrics Implemented (Prometheus)
 
 ### Default Metrics
-- CPU usage
-- Memory usage
-- Event loop stats
-- Process metrics
+
+* CPU usage
+* Memory usage
+* Event loop stats
+* Process metrics
 
 ### Custom Histogram
+
 ```js
 http_req_req_time
-````
+```
 
 **Labels**
 
@@ -118,7 +114,7 @@ http_req_req_time
 
 **Buckets**
 
-```
+```text
 [1, 20, 50, 100, 500, 1000, 1500, 2000, 3000] ms
 ```
 
@@ -143,7 +139,7 @@ Generates logs + latency metrics.
 
 Prometheus scrape endpoint.
 
-```
+```http
 GET /metrics
 ```
 
@@ -205,7 +201,7 @@ node index.js
 
 Backend runs on:
 
-```
+```text
 http://localhost:8000
 ```
 
@@ -255,3 +251,5 @@ Backend | Observability | Systems Thinking
 
 Monitoring is not optional in production systems.
 This project shows not just *what tools are used*, but *how they work together*.
+
+```
