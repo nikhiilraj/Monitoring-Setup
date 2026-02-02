@@ -1,4 +1,5 @@
 const express = require("express");
+const responseTime = require("response-time");
 const client = require("prom-client")
 const doSomeHeavyTask = require("./util");
 
@@ -7,6 +8,21 @@ const PORT = 8000;
 
 const collectDefaultMetrics = client.collectDefaultMetrics;
 collectDefaultMetrics({ register: client.register });
+
+const reqResTime = new client.Histogram({
+    name: "http_req_req_time",
+    help: "This tell how much time is taken by req res",
+    labelNames: ["method","route", "status_code"],
+    buckets: [1,20,50,100,500,1000,1500,2000,3000]
+});
+
+app.use(responseTime((req,res,time)=> {
+    reqResTime.labels({
+        method: req.method,
+        route: req.route,
+        status_code: res.statusCode
+    }).observe(time);
+}))
 
 app.get('/',(req,res)=>{
     return res.json({ msg: "hii" });

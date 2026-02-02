@@ -14,6 +14,9 @@ importers:
       prom-client:
         specifier: ^15.1.3
         version: 15.1.3
+      response-time:
+        specifier: ^2.3.4
+        version: 2.3.4
 
 packages:
 
@@ -195,6 +198,10 @@ packages:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
     engines: {node: '>= 0.8'}
 
+  on-headers@1.1.0:
+    resolution: {integrity: sha512-737ZY3yNnXy37FHkQxPzt4UZ2UWPWiCZWLvFZ4fu5cueciegX0zGPnrlY6bwRg4FdQOe9YU8MkmJwGhoMybl8A==}
+    engines: {node: '>= 0.8'}
+
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
@@ -224,6 +231,10 @@ packages:
   raw-body@3.0.2:
     resolution: {integrity: sha512-K5zQjDllxWkf7Z5xJdV0/B0WTNqx6vxG70zJE4N0kBs4LovmEYWJzQGxC9bS9RAKu3bgM40lrd5zoLJ12MQ5BA==}
     engines: {node: '>= 0.10'}
+
+  response-time@2.3.4:
+    resolution: {integrity: sha512-fiyq1RvW5/Br6iAtT8jN1XrNY8WPu2+yEypLbaijWry8WDZmn12azG9p/+c+qpEebURLlQmqCB8BNSu7ji+xQQ==}
+    engines: {node: '>= 0.8.0'}
 
   router@2.2.0:
     resolution: {integrity: sha512-nLTrUKm2UyiL7rlhapu/Zl45FwNgkZGaCpZbIHajDYgwlJCOzLSk+cIPAnsEqV955GjILJnKbdQC1nVPz+gAYQ==}
@@ -474,6 +485,8 @@ snapshots:
     dependencies:
       ee-first: 1.1.1
 
+  on-headers@1.1.0: {}
+
   once@1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -504,6 +517,11 @@ snapshots:
       http-errors: 2.0.1
       iconv-lite: 0.7.2
       unpipe: 1.0.0
+
+  response-time@2.3.4:
+    dependencies:
+      depd: 2.0.0
+      on-headers: 1.1.0
 
   router@2.2.0:
     dependencies:
