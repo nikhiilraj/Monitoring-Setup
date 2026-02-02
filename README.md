@@ -1,8 +1,17 @@
 # 📊 Backend Monitoring with Prometheus, Grafana & Loki
 
+---
+
+## Request Latency & Traffic
+
+![Grafana Request Latency](./screenshots/grafana.png)
+
+---
+
 A production-style **observability setup** for a Node.js backend using **Prometheus for metrics**, **Grafana for visualization**, and **Loki for centralized logging**.
 
 This project demonstrates **hands-on experience** with real-world monitoring patterns including:
+
 - Custom Prometheus metrics
 - Request latency histograms
 - Centralized structured logging
@@ -14,6 +23,7 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
 ## 🚀 Tech Stack
 
 ### Backend
+
 - **Node.js + Express**
 - **prom-client** – Custom Prometheus metrics
 - **response-time** – HTTP latency tracking
@@ -21,6 +31,7 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
 - **winston-loki** – Log shipping to Loki
 
 ### Observability
+
 - **Prometheus** – Metrics scraping & storage
 - **Grafana** – Metrics & log visualization
 - **Loki** – Centralized log aggregation
@@ -33,6 +44,7 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
 ```
 
 ```
+
                 ┌──────────────┐
                 │   Client     │
                 └──────┬───────┘
@@ -53,8 +65,6 @@ This project demonstrates **hands-on experience** with real-world monitoring pat
                         │
     ┌───────────────────┴───────────────────┐
     │                                       │
-```
-
 ┌──────────────┐                       ┌────────────────┐
 │ Prometheus   │                       │     Loki       │
 │ (Metrics)    │                       │ (Logs Store)   │
